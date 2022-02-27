@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="uft-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<style>
+    * {
+        max-width: 100%;
+    }
+    
+    body {
+        font-family: Roboto, sans-serif;
+        background: url(https://images03.nicepage.com/c461c07a441a5d220e8feb1a/67856f1065845df4bf9e75e6/dddd-min.jpg) no-repeat center center fixed;
+        background-size: 1100px;
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .padre1 {
+        width: 100%;
+        height: 900px;
+    }
+    
+    .arriba {
+        height: 50px;
+        background-color: white;
+        width: auto;
+        flex-direction: row-reverse;
+        text-align: center;
+    }
+    
+    .cuadrobusqueda {
+        height: 24px;
+        width: 10px;
+    }
+    
+    .cuadromenu {
+        height: 24px;
+        width: 30px;
+    }
+    
+    .three {
+        height: 45px;
+        display: flex;
+        margin-top: 30px;
+        text-align: center;
+        flex-direction: column;
+    }
+    
+    .padre2 {
+        margin-top: 50px;
+        width: auto;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .small {
+        letter-spacing: 2px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    
+    .big {
+        margin-top: 15px;
+        font-size: 50px;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    
+    .cuadrado1:hover {
+        cursor: pointer;
+        color: white;
+        background-color: rgb(0, 0, 0);
+        transition: 0.25s;
+    }
+    
+    .cuadrado2:hover {
+        cursor: pointer;
+        color: white;
+        background-color: rgb(0, 0, 0);
+        transition: 0.25s;
+    }
+    
+    .cuadrado1 {
+        border-style: solid;
+        border-color: black;
+        width: 100%;
+        height: auto;
+        padding-top: 12px;
+    }
+    
+    .cuadrado2 {
+        border-style: solid;
+        border-color: rgb(0, 0, 0);
+        width: 100%;
+        height: auto;
+        padding-top: 12px;
+    }
+    
+    .or {
+        width: auto;
+        height: auto;
+        padding-top: 12px;
+        font-weight: bolder;
+        font-size: x-large;
+        font-style: oblique;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+    
+    @media screen and (min-width: 600px) {
+        .padre1 {
+            display: flex;
+            justify-content: center;
+        }
+        .three {
+            flex-direction: row;
+        }
+    }
+    
+    @media screen and (min-width: 1024px) {
+        .padre1 {
+            display: flex;
+            justify-content: center;
+        }
+        .three {
+            flex-direction: row;
+        }
+    }
+    
+    * {
+        font-family: Sans-Serif;
+        box-sizing: border-box;
+    }
+    
+    .modal {
+        position: fixed;
+        z-index: 7;
+        background-color: rgba(0, 0, 0, 0.5);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility .2s, opacity .2s;
+    }
+    
+    .menubutton {
+        border: none;
+        background-color: white;
+    }
+    
+    .menubutton:hover {
+        background-color: lightgray;
+    }
+    
+    .content {
+        width: 100%;
+        height: auto;
+        border-radius: 2.6%;
+        background-color: rgb(19, 19, 19);
+        text-align: center;
+        padding: 20px;
+        font-size: 20px;
+        overflow: hidden;
+        margin-top: -50px;
+        transition: margin-top 0.5s;
+    }
+    
+    .UP2 {
+        display: flex;
+        margin-top: 20px;
+        border-bottom: outset 0.5px lightgray;
+        padding-bottom: 20px;
+    }
+    
+    .UPCONTENT {
+        width: 100%;
+        height: auto;
+        text-align: left;
+        color: rgb(255, 255, 255);
+        border-radius: 2.6%;
+    }
+    
+    .UPCONTENT2 {
+        width: 100%;
+        height: auto;
+        text-align: right;
+        color: rgb(255, 255, 255);
+        border-radius: 2.6%;
+    }
+    
+    .NAME2 {
+        color: gray;
+    }
+    
+    .UP3 {
+        display: block;
+        margin-left: 20px;
+    }
+    
+    .UP {
+        display: flex;
+        padding: 7.5px;
+        font-size: larger;
+    }
+    
+    .show {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .filefatherfather {
+        display: flex;
+    }
+    
+    .filefather1 {
+        padding: 7.5px;
+        margin-top: 30px;
+        width: 100%;
+    }
+    
+    .filefather2 {
+        padding: 7.5px;
+        margin-top: 30px;
+        width: 100%;
+    }
+    
+    .show>.content {
+        margin: 0px;
+    }
+    
+    .PHOTO {
+        background-color: rgb(191, 191, 53);
+        width: 60px;
+        height: 60px;
+        border-radius: 40%;
+        padding-top: 17px;
+    }
+    
+    .NAME1 {
+        color: white;
+    }
+    
+    .text {
+        width: 100%;
+        height: 50px;
+        font-size: small;
+        font-weight: bold;
+        text-align: left;
+        color: grey;
+        border-radius: 2.6%;
+        margin-left: 40px;
+    }
+    
+    .texttitle {
+        width: 100%;
+        height: 50px;
+        font-size: small;
+        font-weight: bold;
+        text-align: left;
+        color: grey;
+        border-radius: 2.6%;
+        margin-left: 40px;
+    }
+    
+    .text:hover {
+        color: #ffffff;
+        background-color: rgb(78, 77, 77);
+        cursor: none;
+    }
+    
+    .UPCONTENT3 {
+        background-color: rgb(19, 19, 19);
+        border: none;
+        color: white;
+        font-size: large;
+    }
+    
+    @media (min-width: 800px) {
+        .content {
+            width: 50%;
+        }
+    }
+    
+    @media (max-width: 800px) {
+        .content {
+            width: auto;
+        }
+        .filefatherfather {
+            display: block;
+            margin: 0;
+            width: auto;
+        }
+        .filefather1 {
+            display: block;
+            width: auto;
+            margin: 0;
+        }
+        .filefather2 {
+            display: block;
+            width: auto;
+            margin: 0;
+            border-top: outset 0.5px;
+            border-color: gray;
+            padding-top: 40px;
+        }
+        .text {
+            display: block;
+            width: auto;
+            margin: 0;
+            text-align: left;
+        }
+        .texttitle {
+            display: block;
+            width: auto;
+            margin: 0;
+            text-align: left;
+        }
+    }
+</style>
+
+<script>
+    function hideModal() {
+        const modal = document.querySelector('.modal');
+        modal.classList.remove('show');
+    }
+
+    function showModal() {
+        const modal = document.querySelector('.modal');
+        modal.classList.add('show');
+    }
+</script>
+
+<body>
+    <div class="arriba">
+        <nav class="main">
+            <form class="box_search">
+                <input type="search" name="Search" placeholder="Search"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                />
+                </svg>
+
+            </form>
+            <button class="menubutton" onclick="showModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            </button>
+        </nav>
+
+    </div>
+    <div class="padre1">
+        <div class="padre2">
+            <div class="small">OUR SERVICES</div>
+            <div class="big">BRAND DESIGN</div>
+            <div class="three">
+                <div class="cuadrado2">CONTACT</div>
+                <div class="or">OR</div>
+                <div class="cuadrado1">ABOUT US</div>
+
+            </div>
+        </div>
+
+        <div>
+            <div class="modal">
+                <div class="content">
+
+                    <div class="UP">
+                        <div class="UPCONTENT">
+                            Profile
+                        </div>
+
+                        <div class="UPCONTENT2">
+                            <button class="UPCONTENT3" onclick="hideModal()">
+                                X
+                              </button>
+                        </div>
+                    </div>
+
+                    <div class="UP2">
+                        <div class="PHOTO">
+                            Y
+                        </div>
+                        <div class="UP3">
+                            <div class="NAME1">
+                                Youme &#128406;
+                            </div>
+                            <div class="NAME2">
+                                Offline * hello@youme.co
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filefatherfather">
+                        <div class="filefather1">
+
+                            <div class="texttitle">
+                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M15.5,11.5c0,2-2.5,3.5-2.5,5h-2c0-1.5-2.5-3-2.5-5C8.5,9.57,10.07,8,12,8S15.5,9.57,15.5,11.5z M13,17.5h-2V19h2V17.5z M22,12c0-2.76-1.12-5.26-2.93-7.07l-1.06,1.06C19.55,7.53,20.5,9.66,20.5,12c0,2.34-0.95,4.47-2.49,6.01l1.06,1.06 C20.88,17.26,22,14.76,22,12z M3.5,12c0-2.34,0.95-4.47,2.49-6.01L4.93,4.93C3.12,6.74,2,9.24,2,12c0,2.76,1.12,5.26,2.93,7.07 l1.06-1.06C4.45,16.47,3.5,14.34,3.5,12z M17.5,12c0,1.52-0.62,2.89-1.61,3.89l1.06,1.06C18.22,15.68,19,13.93,19,12 c0-1.93-0.78-3.68-2.05-4.95l-1.06,1.06C16.88,9.11,17.5,10.48,17.5,12z M7.05,16.95l1.06-1.06c-1-1-1.61-2.37-1.61-3.89 c0-1.52,0.62-2.89,1.61-3.89L7.05,7.05C5.78,8.32,5,10.07,5,12C5,13.93,5.78,15.68,7.05,16.95z"/></g></svg>                                Online
+                            </div>
+
+                            <div class="text">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>                                Edit
+                            </div>
+
+                            <div class="text">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>                                Share
+                            </div>
+                            <div class="text">
+                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><rect fill="none" height="24" width="24"/><path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26 c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg>                                Dark mode
+                            </div>
+
+                        </div>
+
+                        <div class="filefather2">
+
+                            <div class="texttitle">
+                                Teams
+                            </div>
+
+
+                            <div class="text">
+                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g/><g><g><path d="M16.67,13.13C18.04,14.06,19,15.32,19,17v3h4v-3 C23,14.82,19.43,13.53,16.67,13.13z" fill-rule="evenodd"/></g><g><circle cx="9" cy="8" fill-rule="evenodd" r="4"/></g><g><path d="M15,12c2.21,0,4-1.79,4-4c0-2.21-1.79-4-4-4c-0.47,0-0.91,0.1-1.33,0.24 C14.5,5.27,15,6.58,15,8s-0.5,2.73-1.33,3.76C14.09,11.9,14.53,12,15,12z" fill-rule="evenodd"/></g><g><path d="M9,13c-2.67,0-8,1.34-8,4v3h16v-3C17,14.34,11.67,13,9,13z" fill-rule="evenodd"/></g></g></g></svg>                                Karaoke
+                            </div>
+
+
+                            <div class="text">
+                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g/><g><g><path d="M16.67,13.13C18.04,14.06,19,15.32,19,17v3h4v-3 C23,14.82,19.43,13.53,16.67,13.13z" fill-rule="evenodd"/></g><g><circle cx="9" cy="8" fill-rule="evenodd" r="4"/></g><g><path d="M15,12c2.21,0,4-1.79,4-4c0-2.21-1.79-4-4-4c-0.47,0-0.91,0.1-1.33,0.24 C14.5,5.27,15,6.58,15,8s-0.5,2.73-1.33,3.76C14.09,11.9,14.53,12,15,12z" fill-rule="evenodd"/></g><g><path d="M9,13c-2.67,0-8,1.34-8,4v3h16v-3C17,14.34,11.67,13,9,13z" fill-rule="evenodd"/></g></g></g></svg>                                Paper
+                            </div>
+
+                            <div class="text">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg> Add new
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+
+</html>
